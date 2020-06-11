@@ -1,6 +1,6 @@
 # DataStructures and Algorithms
 Data Structures and Algorithms
-1. Find the duplicate in an array of N integers
+1. ## Sort an array of 0’s 1’s 2’s without using extra space or sorting algo
 	/** Dutch Flag Concept / Three way partistioning*/
 	public void sortColors(int[] nums) {
         int left = 0; int mid = 0; int right = nums.length-1;
