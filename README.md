@@ -24,3 +24,16 @@ Data Structures and Algorithms
             }
         }
     }
+
+2. ## Find the duplicate in an array of N integers
+    /** time O(n) Space O(1)*/
+    ### this does not work when a[i] = 0; a[i] = negative; a[i] > a.length-1;
+    public static void findDuplicate (int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[Math.abs(a[i])] >= 0) {
+                a[Math.abs(a[i])] = -a[Math.abs(a[i])];
+            } else {
+                System.out.print(Math.abs(a[i]) + " ");
+            }
+        }
+    }
