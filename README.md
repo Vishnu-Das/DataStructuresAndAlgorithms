@@ -30,10 +30,28 @@ Data Structures and Algorithms
     ### this does not work when a[i] = 0; a[i] = negative; a[i] > a.length-1;
     public static void findDuplicate (int[] a) {
         for (int i = 0; i < a.length; i++) {
-            if (a[Math.abs(a[i])] >= 0) {
+            if (a[Math.abs(a[i])] >= 0) { // trick
                 a[Math.abs(a[i])] = -a[Math.abs(a[i])];
             } else {
                 System.out.print(Math.abs(a[i]) + " ");
+            }
+        }
+    }
+
+3. ## Repeat and Missing Number
+    public static void findDuplicateAndRepeating (int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            if (a[Math.abs(a[i])-1] >= 0) { // trick
+                a[Math.abs(a[i])-1] = -a[Math.abs(a[i])-1];
+            } else {
+                System.out.print(Math.abs(a[i]) + " ");
+            }
+        }
+        System.out.println("");
+        // {-1, -2, -3, 1, 3, -6, 6}
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] > 0) { // trick
+                System.out.print((i+1) + " ");
             }
         }
     }
