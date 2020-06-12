@@ -57,16 +57,28 @@
     }
 
 4. ## Merge two sorted Arrays without extra space O(n*m) O(1)
-
     public static void mergeSortedArrays(int a1, int a2) {
         for (int i = a2-1; i>=0; i--) {
             int j, last = ar1[a1-1];
             for (j=a1-2; j>=0 && ar1[j] > ar2[i]; j--) {
                 ar1[j+1] = ar1[j];
             }
-            if (j != a1-2 || last > ar2[i]) { // j != a1-2, I feel this condition is not required.
+            if (j != a1-2 || last > ar2[i]) { /** j != a1-2, I feel this condition is not required. */
                 ar1[j+1] = ar2[i];
                 ar2[i] = last;
             }
         } 
     }
+
+5. ## Kadane's Algorithm
+    ### Largest Sum contiguous subarray.
+    public static int maximumSumSubarray(int[] a) {
+        int max_till_here = 0, max_so_far = 0;
+        for (int i = 0; i < a.length; i++) {
+            max_till_here += a[i];
+            if(max_till_here < 0) max_till_here = 0;
+            if(max_so_far < max_till_here) max_so_far = max_till_here;
+        }
+        return max_so_far;
+    }
+
