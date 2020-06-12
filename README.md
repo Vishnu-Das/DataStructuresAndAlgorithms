@@ -1,6 +1,7 @@
 # DataStructures and Algorithms
 
 1. ## Sort an array of 0’s 1’s 2’s without using extra space or sorting algo O(n) O(1)
+```
     /** Dutch Flag Concept / Three way partistioning*/
     public void sortColors(int[] nums) {
         int left = 0; int mid = 0; int right = nums.length-1;
@@ -24,10 +25,12 @@
             }
         }
     }
+```
 
 2. ## Find the duplicate in an array of N integers O(n) O(1)
-    /** time O(n) Space O(1)*/
     ### this does not work when a[i] = 0; a[i] = negative; a[i] > a.length-1;
+```
+    /** time O(n) Space O(1)*/
     public static void findDuplicate (int[] a) {
         for (int i = 0; i < a.length; i++) {
             if (a[Math.abs(a[i])] >= 0) { // trick
@@ -37,8 +40,10 @@
             }
         }
     }
+```
 
 3. ## Repeat and Missing Number O(n) O(1)
+```
     public static void findDuplicateAndRepeating (int[] a) {
         for (int i = 0; i < a.length; i++) {
             if (a[Math.abs(a[i])-1] >= 0) { // trick
@@ -55,8 +60,10 @@
             }
         }
     }
+```
 
 4. ## Merge two sorted Arrays without extra space O(n*m) O(1)
+```
     public static void mergeSortedArrays(int a1, int a2) {
         for (int i = a2-1; i>=0; i--) {
             int j, last = ar1[a1-1];
@@ -69,9 +76,11 @@
             }
         } 
     }
+```
 
 5. ## Kadane's Algorithm
     ### Largest Sum contiguous subarray.
+```
     public static int maximumSumSubarray(int[] a) {
         int max_till_here = 0, max_so_far = 0;
         for (int i = 0; i < a.length; i++) {
@@ -81,8 +90,9 @@
         }
         return max_so_far;
     }
+```
 
-5. ## Merge Overlapping Subintervals
+6. ## Merge Overlapping Subintervals
     public static List<int[]> mergeOverlappingIntervals(final int[][] intervals) {
        if (intervals.length <= 1) return Arrays.asList(intervals) ;
        // sort intervals based on start value
