@@ -93,6 +93,7 @@
 ```
 
 6. ## Merge Overlapping Subintervals
+```
     public static List<int[]> mergeOverlappingIntervals(final int[][] intervals) {
        if (intervals.length <= 1) return Arrays.asList(intervals) ;
        // sort intervals based on start value
@@ -117,3 +118,4 @@
         }
         return result;
     }
+```
