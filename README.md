@@ -1,6 +1,9 @@
 # DataStructures and Algorithms
 
 1. ## Sort an array of 0’s 1’s 2’s without using extra space or sorting algo O(n) O(1)
+<details>
+    <summary>snippet</summary>
+
 ```
     /** Dutch Flag Concept / Three way partistioning*/
     public void sortColors(int[] nums) {
@@ -26,8 +29,12 @@
         }
     }
 ```
+</details>
 
 2. ## Find the duplicate in an array of N integers O(n) O(1)
+<details>
+    <summary>snippet</summary>
+
     ### this does not work when a[i] = 0; a[i] = negative; a[i] > a.length-1;
 ```
     /** time O(n) Space O(1)*/
@@ -41,8 +48,12 @@
         }
     }
 ```
+</details>
 
 3. ## Repeat and Missing Number O(n) O(1)
+<details>
+    <summary>snippet</summary>
+
 ```
     public static void findDuplicateAndRepeating (int[] a) {
         for (int i = 0; i < a.length; i++) {
@@ -61,8 +72,12 @@
         }
     }
 ```
+</details>
 
 4. ## Merge two sorted Arrays without extra space O(n*m) O(1)
+<details>
+    <summary>snippet</summary>
+
 ```
     public static void mergeSortedArrays(int a1, int a2) {
         for (int i = a2-1; i>=0; i--) {
@@ -77,8 +92,12 @@
         } 
     }
 ```
+</details>
 
 5. ## Kadane's Algorithm
+<details>
+    <summary>snippet</summary>
+
     ### Largest Sum contiguous subarray.
 ```
     public static int maximumSumSubarray(int[] a) {
@@ -91,8 +110,12 @@
         return max_so_far;
     }
 ```
+</details>
 
 6. ## Merge Overlapping Subintervals
+<details>
+    <summary>snippet</summary>
+
 ```
     public static List<int[]> mergeOverlappingIntervals(final int[][] intervals) {
        if (intervals.length <= 1) return Arrays.asList(intervals) ;
@@ -119,7 +142,12 @@
         return result;
     }
 ```
+</details>
+
 7. ## Set col and row zero for a zero element in matrix 
+<details>
+    <summary>snippet</summary>
+
 ```
     private static void setMatrixToZero(int[][] matrix) {
         boolean rowzero = false;
@@ -169,7 +197,12 @@
         }
     }
 ```
+</details>
+
 8. ## Pascal's Triangle creation for a given number.
+<details>
+    <summary>snippet</summary>
+
 ```
 public static List<List<Integer>> generate(int numRows) {
         List<List<Integer>> pascalTriangle = new ArrayList<>();
@@ -203,3 +236,5 @@ public static List<List<Integer>> generate(int numRows) {
         return nseq;
     }
 ```
+</details>
+
