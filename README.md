@@ -355,3 +355,26 @@ public static List<List<Integer>> generate(int numRows) {
 	}
 ```
 </details>
+
+12. ## Two SUm - Eazy - Linear time. using Hash Map.
+<details>
+    <summary>snippet</summary>
+
+```
+    public static int[] twoSum(int[] nums, int target) {
+        int[] pair = new int[2];
+        Map<Integer,Integer> previousMap = new HashMap<>();
+        for(int i=0; i<nums.length; i++) {
+            int neededValue = target - nums[i];
+            int prevIndex = previousMap.getOrDefault(neededValue, -1);
+            if(prevIndex != -1) {
+                pair[0] = prevIndex;
+                pair[1] = i;
+            } else {
+                previousMap.put(nums[i], i);
+            }
+        }
+        return pair;
+    }
+```
+</details>
