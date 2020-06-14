@@ -303,7 +303,7 @@ public static List<List<Integer>> generate(int numRows) {
 ```
 </details>
 
-9. ## Stock Buy and Sell - Eazy
+10. ## Stock Buy and Sell - Eazy
 <details>
     <summary>snippet</summary>
 
@@ -326,7 +326,7 @@ public static List<List<Integer>> generate(int numRows) {
 ```
 </details>
 
-9. ## Stock Buy and Sell - Medium
+11. ## Stock Buy and Sell - Medium
 <details>
     <summary>snippet</summary>
 
