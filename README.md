@@ -302,3 +302,56 @@ public static List<List<Integer>> generate(int numRows) {
     }
 ```
 </details>
+
+9. ## Stock Buy and Sell - Eazy
+<details>
+    <summary>snippet</summary>
+
+```
+    private static int maxProfit(final int[] prices) {
+        if (prices.length == 0) {
+			 return 0 ;
+		 }		
+		 int max = 0 ;
+		 int sofarMin = prices[0] ;
+	     for (int i = 0 ; i < prices.length ; ++i) {
+	    	 if (prices[i] > sofarMin) {
+	    		 max = Math.max(max, prices[i] - sofarMin) ;
+	    	 } else{
+	    		sofarMin = prices[i];  
+	    	 }
+	     }	     
+	    return  max ;
+    }
+```
+</details>
+
+9. ## Stock Buy and Sell - Medium
+<details>
+    <summary>snippet</summary>
+
+```
+    private static int maximumProfit(int[] stocks) {
+        boolean bought = false;
+        int i =0, profit = 0;
+        while(i < stocks.length-1) {
+            if (stocks[i] < stocks[i+1] && !bought) {
+                profit -= stocks[i];
+                bought = true;
+            } else
+            if (stocks[i] > stocks[i+1] && bought) {
+                profit += stocks[i];
+                bought = false;
+            }
+            i++;
+        }
+
+        if(bought && i == stocks.length-1) {
+            profit += stocks[i];
+            bought = false;
+        }
+
+		return profit;
+	}
+```
+</details>
