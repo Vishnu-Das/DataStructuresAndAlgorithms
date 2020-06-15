@@ -454,3 +454,61 @@ public static List<List<Integer>> generate(int numRows) {
     }
 ```
 </details>
+
+15. ## Longest SubArray with sum 0. O(n)
+<details>
+    <summary>snippet</summary>
+
+```
+    private static int longestSubArrayLength(int[] nums, int target) {
+        int longest = 0;
+        Map<Integer, Integer> prefixMap = new HashMap<>();
+        int curr_sum = 0;
+        for(int i = 0; i < nums.length; i++) {
+            curr_sum += nums[i];
+            if (prefixMap.containsKey(curr_sum)) {
+                longest = Math.max(longest, i-prefixMap.get(curr_sum));
+            } else {
+                prefixMap.put(curr_sum, i);
+            }
+        }
+        return longest;
+    }
+```
+</details>
+
+16. ## Count of SubArrays with a given XOR.
+<details>
+    <summary>snippet</summary>
+
+```
+    private static long countSubArraysHavingXOR(int[] nums, int target) { 
+        // Sub1 ^ Sub2 = m => Sub1 ^ m = Sub2; => numsXOR[i] ^ target = temp 
+        long countOfSubarrays = 0;
+        int[] numsXOR = new int[nums.length];
+        Map<Integer, Integer> checkMap =  new HashMap<>();
+        numsXOR[0] = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            numsXOR[i] = numsXOR[i-1] ^ nums[i];
+        }
+        for (int i = 0; i < numsXOR.length; i++) {
+            int temp = target ^ numsXOR[i];
+            if (checkMap.containsKey(temp)) {
+                countOfSubarrays += (long) checkMap.get(temp); // doubt here - add 1 or not
+            }
+
+            if (numsXOR[i] == target) {
+                countOfSubarrays++;
+            }
+
+            if(checkMap.containsKey(numsXOR[i])) {
+                int n = checkMap.get(numsXOR[i]) + 1;
+                checkMap.put(numsXOR[i], n);
+            } else {
+                checkMap.put(numsXOR[i], 1);
+            }
+        }
+        return countOfSubarrays;
+    }
+```
+</details>

@@ -1,6 +1,6 @@
  public class MaxSumSubarray {
     public static void main(String[] args) {
-        int[] a = {-2, -3, 4, -1, -2, 1, 5, -3};
+        int[] a = {15, -2, 2, -8, 1, 7, 10, 23};
         System.out.println(maximumSumSubarray(a));
     }
 
