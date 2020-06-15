@@ -427,3 +427,30 @@ public static List<List<Integer>> generate(int numRows) {
     }
 ```
 </details>
+
+14. ## Longest Consecutive Sequence O(n)
+<details>
+    <summary>snippet</summary>
+
+```
+    public static int longestConsecutive(int[] nums) {
+        int longest = 0;
+        Set<Integer> checkSet = new HashSet<>();
+        for (int i=0; i<nums.length; ++i) {
+            checkSet.add(nums[i]);
+        }
+
+        for(int i = 0; i < nums.length; ++i) {
+            if ( ! checkSet.contains(nums[i] - 1)) {
+                int first = nums[i];
+                while(checkSet.contains(first)) {
+                    first++;
+                }
+                longest = Math.max(longest, (first - nums[i]));
+            }
+        }
+
+        return longest;
+    }
+```
+</details>
