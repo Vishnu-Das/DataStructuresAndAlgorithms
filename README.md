@@ -535,3 +535,88 @@ public static List<List<Integer>> generate(int numRows) {
     }
 ```
 </details>
+
+18. ## Reverse a LinkedList.
+<details>
+    <summary>snippet</summary>
+
+```
+    public static Node reverse(Node head) {
+        Node prev = null;
+        Node next = null;
+        Node current = head;
+        while(current != null) {
+            next =current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+        return head;
+    }
+```
+</details>
+
+19. ## MiddleOfLinkedList
+<details>
+    <summary>snippet</summary>
+
+```
+    public static ListNode middleNode(ListNode head) {
+        ListNode slowPtr = head;
+        ListNode fastPtr = head;
+        if(head != null) {
+            while (fastPtr != null && fastPtr.next != null) {
+                slowPtr = slowPtr.next;
+                fastPtr = fastPtr.next.next;
+            }
+        }
+        return slowPtr;
+    }
+```
+</details>
+
+19. ## Is Valid IP Address.
+<details>
+    <summary>snippet</summary>
+
+```
+    public static String validIPAddress(String IP) {
+        if(IP.length() == 0 || IP.charAt(IP.length()-1) == ':' || IP.charAt(IP.length()-1) == '.' || IP.contains("-"))
+         return "Neither";
+        String[] ipv4 = IP.split("\\.");
+        if(ipv4.length == 4) {
+            for (int i=0; i<ipv4.length; i++) {
+                if(ipv4[i].length() == 0 || ipv4[i].length() != 1 && ipv4[i].charAt(0) == '0') {
+                    return "Neither";
+                }
+                try {
+                    int val = Integer.parseInt(ipv4[i]);
+                    if(val > 255 || val < 0 ) {
+                        return "Neither";
+                    }    
+                } catch (Exception e) {
+                    return "Neither";
+                }
+            }
+            return "IPv4";
+        } else {
+            String[] ipv6 = IP.split(":");
+            if (ipv6.length == 8) {
+                for (int i = 0; i < ipv6.length; i++) {
+                    if(ipv6[i].length() == 0 || ! isHexadecimal(ipv6[i])
+                        || ipv6[i].length() > 4) return "Neither";
+                }
+                return "IPv6";
+            } else {
+                return "Neither";
+            }
+        }
+    }
+
+    private static boolean isHexadecimal(String input) {
+        final Matcher matcher = HEXADECIMAL_PATTERN.matcher(input);
+        return matcher.matches();
+    }
+```
+</details>
