@@ -620,3 +620,77 @@ public static List<List<Integer>> generate(int numRows) {
     }
 ```
 </details>
+
+20. ## Merge two sorted LinkedLists
+<details>
+    <summary>snippet</summary>
+
+```
+    public static ListNode mergeSortedLL(ListNode h1, ListNode h2) {
+        ListNode i = h1, j = h2; head = null; prev = null;
+        while(i != null && j != null) {
+            if(i.val <= j.val) {
+                add(i);
+                i= i.next;
+            } else {
+                add(j);
+                j= j.next;
+            }
+        }
+
+        while(i != null) {
+            add(i); i = i.next;
+        }
+        while(j != null) {
+            add(j); j = j.next;
+        }
+
+        return head;
+    }
+
+    public static void add (ListNode node) {
+        if (head == null) {
+            head = node; prev = node;
+        } else {
+            prev.next = node;
+            prev = node;
+        }
+    }
+
+    class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int val) {this.val = val;}
+    ListNode(int val, ListNode next) {this.val = val; this.next = next;}
+    }
+```
+</details>
+
+21. ## Delete Nth Node from End of Linked List.
+<details>
+    <summary>snippet</summary>
+
+```
+    public static LiNode removeNthFromEnd(LiNode head, int n) {
+        LiNode first = head, second = head;
+        for(int i=0; i<n; i++) {
+                if(second.next == null) {
+                    if (i==n-1){
+                    head = head.next;
+                    return head;
+                }
+            }
+            second = second.next;
+        }
+        
+        while(second.next != null) {
+            first = first.next;
+            second = second.next;
+        }
+        
+        first.next = first.next.next;
+        return head;
+    }
+}
+```
+</details>
