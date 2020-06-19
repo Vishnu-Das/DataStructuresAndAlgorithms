@@ -694,3 +694,45 @@ public static List<List<Integer>> generate(int numRows) {
 }
 ```
 </details>
+
+21. ## N meetings in one room
+<details>
+    <summary>snippet</summary>
+
+```
+    private static List<Meeting> possibleMeetings(Meeting[] meetings) {
+        Arrays.sort(meetings, Comparator.comparing( m -> m.end));
+        List<Meeting> result = new ArrayList<>();
+        result.add(meetings[0]); int count = 0;
+         for (int i = 1; i < meetings.length; i++) {
+             if (meetings[i].start > result.get(count).end) {
+                result.add(meetings[i]);
+                count++;
+             }
+         }
+
+        return result;
+    }
+```
+</details>
+
+21. ## Minimum number of coins.
+<details>
+    <summary>snippet</summary>
+
+```
+    public static int minimumCoins(int[] coins, int Amount) {
+        Arrays.sort(coins);
+        int coinCount = 0;
+        int i = coins.length-1;
+        while(Amount > 0) {
+            if (Amount >= coins[i]) {
+                coinCount += Amount/coins[i];
+                Amount = Amount%coins[i];
+            }
+            i--;
+        }
+            return coinCount;
+    }
+```
+</details>
